@@ -1,5 +1,6 @@
 import React from 'react';
-import { ShieldCheck, Instagram, Video, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { ShieldCheck, Instagram, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import TikTokIcon from './TikTokIcon';
 import { SITE_CONFIG } from '../data/content';
 
 export default function Footer({ onNavigate, onOpenPrivacy }) {
@@ -100,7 +101,7 @@ export default function Footer({ onNavigate, onOpenPrivacy }) {
                   transition: 'all 0.2s',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#d4a737';
+                  e.currentTarget.style.backgroundColor = '#00f2fe';
                   e.currentTarget.style.color = '#05160b';
                 }}
                 onMouseLeave={(e) => {
@@ -108,7 +109,7 @@ export default function Footer({ onNavigate, onOpenPrivacy }) {
                   e.currentTarget.style.color = '#ffffff';
                 }}
               >
-                <Video size={17} />
+                <TikTokIcon size={16} />
               </a>
             </div>
           </div>

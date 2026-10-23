@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Phone, Instagram } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Phone } from 'lucide-react';
+import TikTokIcon from './TikTokIcon';
 import { SITE_CONFIG } from '../data/content';
 
 export default function Navbar({ activeSection, onNavigate, onOpenConsultation }) {
@@ -51,7 +52,7 @@ export default function Navbar({ activeSection, onNavigate, onOpenConsultation }
           padding: isScrolled ? '0.75rem 0' : '1.25rem 0',
         }}
       >
-        <div className="container-custom">
+        <div className="container-custom" style={{ maxWidth: '1400px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             {/* Logo */}
             <div
@@ -122,12 +123,12 @@ export default function Navbar({ activeSection, onNavigate, onOpenConsultation }
               style={{
                 display: 'none',
                 alignItems: 'center',
-                gap: '1.5rem',
+                gap: '1.25rem',
               }}
               className="desktop-nav"
             >
               <style>{`
-                @media (min-width: 1060px) {
+                @media (min-width: 1120px) {
                   .desktop-nav { display: flex !important; }
                   .mobile-nav-toggle { display: none !important; }
                 }
@@ -152,6 +153,7 @@ export default function Navbar({ activeSection, onNavigate, onOpenConsultation }
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.35rem',
+                    whiteSpace: 'nowrap',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.color = '#ffffff';
@@ -194,34 +196,55 @@ export default function Navbar({ activeSection, onNavigate, onOpenConsultation }
               ))}
             </nav>
 
-            {/* Desktop Actions */}
+            {/* Desktop Actions - Separated from internal site navigation with border and margin */}
             <div
               style={{
                 display: 'none',
                 alignItems: 'center',
-                gap: '1rem',
+                gap: '0.85rem',
+                marginLeft: '1.75rem',
+                paddingLeft: '1.5rem',
+                borderLeft: '1px solid rgba(212, 167, 55, 0.35)',
+                flexShrink: 0,
               }}
               className="desktop-nav"
             >
               <a
-                href={SITE_CONFIG.founder.instagram}
+                href={SITE_CONFIG.founder.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  display: 'flex',
+                  display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '0.4rem',
-                  color: 'rgba(255, 255, 255, 0.85)',
+                  gap: '0.45rem',
+                  color: 'rgba(255, 255, 255, 0.9)',
                   fontSize: '0.85rem',
                   textDecoration: 'none',
-                  padding: '0.4rem 0.75rem',
-                  borderRadius: '6px',
+                  padding: '0.45rem 0.85rem',
+                  borderRadius: '7px',
                   backgroundColor: 'rgba(255, 255, 255, 0.06)',
-                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  border: '1px solid rgba(255, 255, 255, 0.14)',
+                  transition: 'all 0.25s ease',
+                  whiteSpace: 'nowrap',
+                  flexShrink: 0,
                 }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.12)';
+                  e.currentTarget.style.borderColor = '#00f2fe';
+                  e.currentTarget.style.color = '#ffffff';
+                  e.currentTarget.style.boxShadow = '0 0 14px rgba(0, 242, 254, 0.25)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.06)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.14)';
+                  e.currentTarget.style.color = 'rgba(255, 255, 255, 0.9)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
+                aria-label="Segui Finanza101 su TikTok"
+                title="Segui Finanza101 su TikTok"
               >
-                <Instagram size={14} color="#d4a737" />
-                <span style={{ fontWeight: 600 }}>Instagram</span>
+                <TikTokIcon size={15} color="#00f2fe" />
+                <span style={{ fontWeight: 600 }}>TikTok</span>
               </a>
 
               <button
@@ -230,10 +253,16 @@ export default function Navbar({ activeSection, onNavigate, onOpenConsultation }
                 style={{
                   padding: '0.65rem 1.35rem',
                   fontSize: '0.88rem',
+                  whiteSpace: 'nowrap',
+                  flexShrink: 0,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.45rem',
+                  lineHeight: 1.2,
                 }}
               >
-                <span>Fai il Check-Up</span>
-                <ArrowUpRight size={16} />
+                <span style={{ whiteSpace: 'nowrap' }}>Fai il Check-Up</span>
+                <ArrowUpRight size={16} style={{ flexShrink: 0 }} />
               </button>
             </div>
 
@@ -343,11 +372,34 @@ export default function Navbar({ activeSection, onNavigate, onOpenConsultation }
                 onOpenConsultation();
               }}
               className="btn-gold"
-              style={{ width: '100%', padding: '1rem', fontSize: '1rem' }}
+              style={{ width: '100%', padding: '1rem', fontSize: '1rem', whiteSpace: 'nowrap' }}
             >
-              <span>Fai il Check-Up Gratuito</span>
+              <span style={{ whiteSpace: 'nowrap' }}>Fai il Check-Up Gratuito</span>
               <ArrowUpRight size={18} />
             </button>
+
+            <a
+              href={SITE_CONFIG.founder.tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem',
+                color: '#ffffff',
+                fontSize: '0.9rem',
+                textDecoration: 'none',
+                padding: '0.75rem',
+                borderRadius: '8px',
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                fontWeight: 600,
+              }}
+            >
+              <TikTokIcon size={16} color="#00f2fe" />
+              <span>Seguimi su TikTok (@finanza101)</span>
+            </a>
 
             <a
               href={`https://wa.me/${SITE_CONFIG.founder.phoneDigits}`}

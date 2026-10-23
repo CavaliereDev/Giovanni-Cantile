@@ -1,5 +1,6 @@
 import React from 'react';
-import { Instagram, Video, Users, ArrowUpRight, CheckCircle2, Play, Sparkles } from 'lucide-react';
+import { Instagram, Users, ArrowUpRight, CheckCircle2, Play, Sparkles } from 'lucide-react';
+import TikTokIcon from './TikTokIcon';
 import { SITE_CONFIG, SOCIAL_TOPICS } from '../data/content';
 
 export default function SocialShowcase({ onOpenConsultation }) {
@@ -194,7 +195,7 @@ export default function SocialShowcase({ onOpenConsultation }) {
                     boxShadow: '0 8px 20px rgba(0, 0, 0, 0.5)',
                   }}
                 >
-                  <Video size={28} color="#00f2fe" />
+                  <TikTokIcon size={28} color="#00f2fe" />
                 </div>
                 <span
                   style={{
@@ -229,7 +230,7 @@ export default function SocialShowcase({ onOpenConsultation }) {
               className="btn-outline-white"
               style={{ width: '100%', textDecoration: 'none', padding: '0.8rem', justifyContent: 'center' }}
             >
-              <Video size={17} color="#d4a737" />
+              <TikTokIcon size={17} color="#00f2fe" />
               <span>Guarda i Video su TikTok</span>
               <ArrowUpRight size={15} />
             </a>
